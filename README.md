@@ -1,4 +1,4 @@
-# Guia rápido de instalação do ambiente com WSL2 + GIT + DOCKER + KUBERNETES Local
+# Guia rápido de instalação do ambiente com WSL2 + GIT + DOCKER + KUBERNETES (kubectl/k3d/kind) Local
 
 ## 1. Instalação do WSL 2
 ``` bash
@@ -131,4 +131,23 @@ sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list   # helps tools such as c
 sudo apt-get update
 sudo apt-get install -y kubectl
 kubectl cluster-info
+```
+
+## 5. Instale K3D via curl
+https://k3d.io/
+
+### 1. Install current latest release
+```bash
+curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.0.0 bash
+```
+
+## 6. Instale KIND
+https://kind.sigs.k8s.io/
+
+### 1. Installing From Release Binaries
+```bash
+# For AMD64 / x86_64
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.25.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
 ```
